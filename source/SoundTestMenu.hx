@@ -270,6 +270,24 @@ class SoundTestMenu extends MusicBeatState
 					LoadingState.loadAndSwitchState(new PlayState());
 				});
 			}
+		else if (first == 19 && second == 23)
+		{
+			woahmanstopspammin = false;
+			PlayStateChangeables.nocheese = false;
+			PlayState.SONG = Song.loadFromJson('sinking-hard', 'sinking');
+			PlayState.isFreeplay = false;
+			PlayState.isStoryMode = false;
+			PlayState.storyDifficulty = 2;
+			PlayState.storyWeek = 1;
+			FlxTransitionableState.skipNextTransIn = true;
+			FlxTransitionableState.skipNextTransOut = true;
+			flashyWashy(true);
+			new FlxTimer().start(2, function(tmr:FlxTimer)
+			{
+				LoadingState.loadAndSwitchState(new PlayState());
+			});
+			if (!FlxG.save.data.songArray.contains('sinking') && !FlxG.save.data.botplay) FlxG.save.data.songArray.push('sinking');
+		}
 		else if (first == 41 && second == 1) 
 		{
 			woahmanstopspammin = false;
